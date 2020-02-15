@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
@@ -36,6 +34,10 @@ class ArticlesController < ApplicationController
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
+
+    # render plain: params[:article].inspect
+    # Output:
+    # <ActionController::Parameters {"title"=>"Third Article", "body"=>"This is the third article's body"} permitted: false>
   end
 
   # PATCH/PUT /articles/1
