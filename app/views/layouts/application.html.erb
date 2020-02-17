@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navigation' %>
+    
+    <div class="container" style="margin: 10px;">
+      <%= yield %>  
+    </div>
+ 
   </body>
 </html>

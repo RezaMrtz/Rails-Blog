@@ -12,16 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class:"label" %>
+    <%= form.text_field :title, class:"input", type:"text", placeholder:"Text input" %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :body, class: "label"%>
+    <%= form.text_area :body, class:"textarea is-rounded", placeholder:"e.g. Hello world" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field is-grouped">
+    <%= form.submit class:"button is-primary" %>
   </div>
+  
 <% end %>
