@@ -16,13 +16,13 @@
 @import "bulma";
 
 footer {
-      background-color: #363636 !important;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 100px;
-      width: 100%;
-      overflow: hidden;
+    background-color: #363636 !important;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    overflow: hidden;
 }
 
 #list{
@@ -43,4 +43,8 @@ TODO:
 }
 .field {
     margin-left: 10px;
+}
+
+#btn {
+    margin-top: 12px;
 }

@@ -1,14 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+  <p id="notice"><%= notice %></p>
+<div class="">
+<article class="message is-primary">
+  
+  <div class="message-header">
+    <p class="is-2">Title:</p>
+    <%= @article.title %>
+    <button class="delete" aria-label="delete"></button>
+  </div>
 
-<p>
-  <strong>Body:</strong>
+  <div class="message-body">
   <%= @article.body %>
-</p>
+  </div>
+</article>
+</div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="button is-warning" id="btn">
+  <%= link_to 'Edit this article', edit_article_path(@article) %>
+</div>
+
+<div class="button is-danger" id="btn">
+  <%= link_to 'Delete this article',article_path ,method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+<div class="button is-light" id="btn">
+  <%= link_to 'Back to the list', articles_path %>
+</div>
