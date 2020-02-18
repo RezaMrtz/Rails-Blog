@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bulma";
+@import "bulma";
 
 footer {
       background-color: #363636 !important;
@@ -31,7 +31,7 @@ footer {
 }
 
 a:visited {
-    color: #fff;
+    color: gray;
 }
 
 /* 
@@ -40,4 +40,7 @@ TODO:
 #about { 
     margin-left: 20px;
     margin-top: 30px;
+}
+.field {
+    margin-left: 10px;
 }
