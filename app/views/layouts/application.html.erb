@@ -11,10 +11,12 @@
 
   <body>
     <%= render 'layouts/navigation' %>
-    
-    <div class="container" style="margin: 10px;">
+
+    <div class="container is-marginless" style="margin: 10px;">
       <%= yield %>  
     </div>
- 
+    
+    <%= render "layouts/footer" %>
+  
   </body>
 </html>
