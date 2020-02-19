@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :comments
+  resources :users
   root to: 'home#home'
   get '/about', to: 'home#about'
   resources :articles
