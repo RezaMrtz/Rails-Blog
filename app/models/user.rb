@@ -1,10 +1,15 @@
 class User < ApplicationRecord
-    has_many :comments
-    validates :username,
-               presence: true,
-               length: {minimum:3, maximum:25},
-               uniqueness: {case_sensitive: false}
+  # Associations
+  has_many :comments
+  has_many :articles
+  # Before save
+  before_save { self.email = email.downcase }
+  # Validations
+  validates :username,
+            presence: true,
+            length: { minimum: 3, maximum: 25 },
+            uniqueness: { case_sensitive: false }
 
-    validates :email,
-              format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :email,
+            format: { with: URI::MailTo::EMAIL_REGEXP }
 end

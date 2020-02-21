@@ -19,14 +19,14 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
-  # GET /articles/1/edit
+  # GET /articles/1/edit\
   def edit; end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
+    @article.user = User.first
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
