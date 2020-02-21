@@ -5,27 +5,36 @@
     <div class="message-header">
       <p><%= article.title %></p>
       <button class="delete" aria-label="delete">
-      
       </button>
     </div>
-    
-    <div class="message-body">
-      <%= truncate(article.body, length:100) %>
+      <div class="message-body">
+        <%= truncate(article.body, length:100) %>
+        <br>
+        <div class="article-meta-detail is-size-7">
+          <small>
+            By: <%= article.user.username%>
+          </small>
+          <br>
+          <small class="is-size-7">
+            Created: <%= time_ago_in_words(article.created_at)%>
+          </small>
+          <br>  
+          <small class="is-size-7">
+            Last Update: <%= time_ago_in_words(article.updated_at)%>
+          </small>
+        </div>
     </div>
-
-
   <div class="buttons are-small">      
         <div class="button is-warning" id="btn" style="margin-left:15px;">
-        <%= link_to 'Edit this article', edit_article_path(article) %>
+          <%= link_to 'Edit this article', edit_article_path(article) %>
         </div>
       
         <div class="button is-danger" id="btn">
           <%= link_to 'Delete this article',article_path(article) ,method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
   </div>
-  </article>
-
-  
+  </article>  
 <% end %>
-
-<div class="button is-primary" id="btn"> <%= link_to 'New Article', new_article_path, class:"has-text-white" %> </div>
+<div class="button is-primary" id="btn">
+  <%= link_to 'New Article', new_article_path, class:"has-text-white" %>
+</div>
