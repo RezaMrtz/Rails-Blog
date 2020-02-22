@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # Before save
   before_save { self.email = email.downcase }
   # Validations
+  has_secure_password
   validates :username,
             presence: true,
             length: { minimum: 3, maximum: 25 },
@@ -12,5 +13,4 @@ class User < ApplicationRecord
 
   validates :email,
             format: { with: URI::MailTo::EMAIL_REGEXP }
-  has_secure_password
 end
