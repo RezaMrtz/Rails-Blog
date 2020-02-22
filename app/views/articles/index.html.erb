@@ -12,15 +12,13 @@
         <br>
         <div class="article-meta-detail is-size-7">
           <small>
-            By: <%= article.user.username%>
+            By: <%= article.user.username%> 
           </small>
-          <br>
           <small class="is-size-7">
-            Created: <%= time_ago_in_words(article.created_at)%>
+          /  Created: <%= time_ago_in_words(article.created_at)%> 
           </small>
-          <br>  
           <small class="is-size-7">
-            Last Update: <%= time_ago_in_words(article.updated_at)%>
+          / Last Update: <%= time_ago_in_words(article.updated_at)%>
           </small>
         </div>
     </div>

@@ -52,4 +52,7 @@ TODO:
 .article-meta-detail {
     border:1px solid #eaeaea;
     margin-top: 15px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
