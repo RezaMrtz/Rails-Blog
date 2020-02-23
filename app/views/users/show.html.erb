@@ -1,14 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<div class="container">  
+<div class="box">
+  <!-- Imge -->
+  <article class="media">
+    <div class="media-center">
+      <figure class="image is-128x128">
+        <%= gravatar_for @user %>
+      </figure>
+    </div>
+    <!-- Contentn -->
+    <div class="media-content">
+      <div class="content">
+        <div>   
+          <p class="title">
+            <%= @user.username %>
+          </p>
+          <p><%= @user.email %></p>
+          <p><%= time_ago_in_words(@user.created_at)%> ago </p>     
+          <% @user.articles.each do |article| %>         
+            <p>
+              <%= article.body %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+<!-- Buttons-->
+<div class="field is-grouped">
+  <p class="control">
+    <button class="button is-warning">
+      <%= link_to 'Edit', edit_user_path(@user) %> 
+    </button>
+  </p>
+  <p class="control">
+    <button class="button is-light">
+      <%= link_to 'Back', users_path %>
+    </button>
+  </p>
+</div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
