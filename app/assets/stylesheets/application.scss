@@ -60,3 +60,12 @@ TODO:
 .media-content{
     padding-left: 20px;
 }
+
+#index-box {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

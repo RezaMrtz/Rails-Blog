@@ -10,10 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show
-    @users = User.all
-    @article = Article.all
-  end
+  def show; end
 
   # GET /users/new
   def new
