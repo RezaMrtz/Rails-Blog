@@ -1,23 +1,21 @@
 <% @users.each do |user|%>
 <div class="container">
     <div class="box" id="index-box" >
-        
         <div class="media">
           <div class="media-content">
              <figure class="image is-96x96">
               <%= link_to gravatar_for(user), user_path(user) %>
             </figure>
           </div>
-          
             <div class="content">
                 <p class="title is-4">
                   <%= link_to user.username, user_path(user) %>
                 </p>
+                <%= will_paginate @users, renderer: BulmaPagination::Rails %>
                 <strong clss="title is-2">
                   <%= pluralize(user.articles.count, 'article') if user.articles %>
                 </strong>
             </div>
-          
         </div>
     </div>
 </div>

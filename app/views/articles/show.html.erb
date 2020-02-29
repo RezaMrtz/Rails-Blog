@@ -1,16 +1,33 @@
 <div class="container">
-
   <p id="notice"><%= notice %></p>
 <div class="">
-<article class="message is-primary">
+<article class="">
   
-  <div class="message-header">
-    <p class="is-2">Title:</p>
+  <div class="title is-1">
     <%= @article.title %>
-    <button class="delete" aria-label="delete"></button>
   </div>
 
-  <div class="message-body">
+  <div class="container">
+    <div class="box" id="index-box" >
+        <div class="media">
+          <div class="media-content">
+             <figure class="image is-96x96">
+              <%= (link_to gravatar_for(@article.user), user_path(@article.user)) if @article.user %>
+            </figure>
+          </div>
+            <div class="content">
+                <p class="title is-4">
+                  <%= link_to(@article.user.username, user_path(@article.user)) if @article.user%>
+                </p>
+                <strong clss="title is-2">
+                  <%= pluralize(@article.user.articles.count, 'article') if @article.user.articles %>
+                </strong>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="">
   <%= @article.body %>
   </div>
 </article>

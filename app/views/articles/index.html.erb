@@ -7,6 +7,12 @@
       <button class="delete" aria-label="delete">
       </button>
     </div>
+  
+      <div class="centered">
+        <%= will_paginate @articles%>
+      </div>
+      <%= will_paginate @collection, renderer: BulmaPagination::Rails %>
+
       <div class="message-body">
         <%= truncate(article.body, length:100) %>
         <br>
