@@ -16,6 +16,11 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+# Foodcritic is a tool which helps writing quality and safer Chef cookbooks
+# Out of the box Foodcritic contains over 70 cookbook rules, and plugin system 
+# for writing your own rules
+gem 'foodcritic'
+
 # A simple API for performing paginated queries
 gem 'will_paginate', '~> 3.3'
 # This gem integrates the Bulma pagination component with the will_paginate pagination gem.

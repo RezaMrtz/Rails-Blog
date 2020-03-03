@@ -1,0 +1,25 @@
+<div class="container is-widescreen">
+<%= form_with scope: :session, :html=> {class:"", role: "form"}, url: login_path do |f| %>
+    
+    <p class="title is-2">Login: </p>
+    
+    <div class="field">
+        <label class="label">Email:</label>
+        <p class="control has-icons-left has-icons-right">
+            <%= f.email_field :email, class:"input", placeholder:"Enter Email", autofocus: true %>
+        </p>
+        </div>
+        <div class="field">
+        <label class="label">Password:</label>
+        <p class="control has-icons-left">
+            <%= f.password_field :password,class:"input", placeholder:"Enter password" %>
+        </p>
+        </div>
+        <div class="field is-grouped">
+        <p class="control">
+            <%= f.submit "Log in", class: "button is-primary"%>
+        </p>
+      
+    </div>
+<% end %>
+</div>

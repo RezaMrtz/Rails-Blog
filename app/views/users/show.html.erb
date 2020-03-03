@@ -25,10 +25,9 @@
     </div>
   </article>
 </div>
-<hr>
-
-<%= will_paginate @user_article, renderer: BulmaPagination::Rails %>
-                  
+<hr> <%# Pagination %>
+  <%= will_paginate @user_article, renderer: BulmaPagination::Rails %>                
+    <%# End %>
 <div class="box">
 <% @user.articles.each do |article| %>        
   <article class="media">
