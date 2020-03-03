@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-<h1 class="title text-has-centered">Articles</h1>
+
+<p class="title is-2 text-has-centered">Articles</p>
+
 <% @articles.each do |article| %>
   <article class="message is-info">
     <div class="message-header">
@@ -7,7 +9,6 @@
       <button class="delete" aria-label="delete">
       </button>
     </div>
-  
       <div class="centered">
         <%= will_paginate @articles%>
       </div>
@@ -28,17 +29,25 @@
           </small>
         </div>
     </div>
-  <div class="buttons are-small">      
+    
+    <%# Changeable if authenticated %>
+    <% if logged_in? && current_user == article.user %>
+      <div class="buttons are-small">      
+        <%# Edit Button%>
         <div class="button is-warning" id="btn" style="margin-left:15px;">
           <%= link_to 'Edit this article', edit_article_path(article) %>
         </div>
-      
+        <%# Delete Button%>
         <div class="button is-danger" id="btn">
-          <%= link_to 'Delete this article',article_path(article) ,method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Delete this article',article_path(article) ,method: :delete, 
+          data: { confirm: 'Are you sure?' } %>
         </div>
-  </div>
+      </div>
+    <% end %>
+
   </article>  
 <% end %>
+<%# New Article Button %>
 <div class="button is-primary" id="btn">
   <%= link_to 'New Article', new_article_path, class:"has-text-white" %>
 </div>

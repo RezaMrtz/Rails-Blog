@@ -15,29 +15,33 @@
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <%= link_to "Home",root_path, class:"navbar-item" %>
+            <%= link_to "Home",root_path, class:"navbar-item" %>    
             <%= link_to "Articles",articles_path, class:"navbar-item" %>
             <%= link_to "About", about_path, class:"navbar-item" %>
+            <a class="navbar-item has-text-white"> Contact </a>
+            <%# More options available if authenticated %>
+            <% if logged_in? %>
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link"> More </a>
+                <a class="navbar-link"> Your Profile </a>
                 <div class="navbar-dropdown has-background-dark">
-                    <% if logged_in? %>
                         <%= link_to "New Article", new_article_path, class:"navbar-item has-text-white" %>
-                    <% end %>    
-                    <a class="navbar-item has-text-white"> Contact </a>
+                        <%= link_to "Edit Profile", edit_user_path(current_user), class:"navbar-item has-text-white" %>
+                        <%= link_to "View Profile", user_path(current_user), class:"navbar-item has-text-white" %>
                     <hr class="navbar-divider">
                     <a class="navbar-item has-text-white"> Report an issue </a>
                 </div>
+            <% end %>    
             </div>
         </div>
         <%# Session Buttons %>
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                  <%= link_to 'Sign up', signup_path, class:"button is-primary"%>
-                  <%= link_to 'Log in',  login_path, method: :post, class:"button is-info"%>
                   <% if logged_in? %>
                     <%= link_to 'Log out', logout_path, method: :delete, class:"button is-light"%>
+                  <% else %>
+                    <%= link_to 'Sign up', signup_path, class:"button is-primary"%>
+                    <%= link_to 'Log in',  login_path, method: :post, class:"button is-info"%>
                   <% end %>
                 </div>
             </div>
