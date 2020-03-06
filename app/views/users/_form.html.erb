@@ -12,13 +12,14 @@
     </div>  
   <% end %>
 <div class="container is-widescreen">
+    <!--Name-->
     <div class="field">
     <label class="label">Name:</label>
         <div class="control">
             <%= form.text_area :username, class:"input",placeholder:"Text input"%>
         </div>
     </div>
-
+    <!--Email-->
     <div class="field">
     <label class="label">Email:</label>
     <p class="control has-icons-left has-icons-right">
@@ -26,14 +27,12 @@
         <span class="icon is-small is-left">
         <i class="fas fa-envelope"></i>
         </span>
-    
         <span class="icon is-small is-right">
         <i class="fas fa-check"></i>
         </span>
-    
     </p>
     </div>
-
+    <!--Passwords-->
     <div class="field">
     <label class="label">Password:</label>
     <p class="control has-icons-left">
@@ -43,12 +42,13 @@
         </span>
     </p>
     </div>
+    <!--Buttons-->
     <div class="field is-grouped">
     <p class="control">
         <%= form.submit(@user.new_record? ? "Sign Up" : "Update Account", class:"button is-success") %>
     </p>
     <p class="control">
-        <%= link_to 'Back', users_path, class:"button is-light" %>
+        <%= link_to 'Back', root_path, class:"button is-light" %>
     </p>
     </div>
 </div>

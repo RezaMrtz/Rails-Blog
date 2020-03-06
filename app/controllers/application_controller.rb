@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
     # Use a guard clause instead of wrapping the code
     # inside a conditional expression (if !foo end)
     return unless logged_in?
-
     flash[:danger] = 'You must be logged in to perform that action!'
     redirect_to root_path
   end

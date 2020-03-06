@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<p class="title is-2 text-has-centered">Articles</p>
-
+<div class="container">
+<h1 class="title is-2 text-has-centered">Articles</h1>
 <% @articles.each do |article| %>
-  <article class="message is-info">
-    <div class="message-header">
+  <article class="message is-medium">
+    <div class="message-header">  
       <p><%= article.title %></p>
       <button class="delete" aria-label="delete">
       </button>
@@ -30,7 +29,7 @@
         </div>
     </div>
     
-    <%# Changeable if authenticated %>
+    <%# Available if authenticated %>
     <% if logged_in? && current_user == article.user %>
       <div class="buttons are-small">      
         <%# Edit Button%>
@@ -48,6 +47,9 @@
   </article>  
 <% end %>
 <%# New Article Button %>
+<% if logged_in? %>
 <div class="button is-primary" id="btn">
   <%= link_to 'New Article', new_article_path, class:"has-text-white" %>
+</div>
+<% end %>
 </div>

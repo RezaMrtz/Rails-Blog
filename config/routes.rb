@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   root to: 'home#home'
   get '/about', to: 'home#about'
+  get '/contact', to: 'home#contact'
   get '/signup', to: 'users#new'
   resources :articles
   # Sessions
