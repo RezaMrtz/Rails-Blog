@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   # Associations
   has_many :comments
-  has_many :articles
+  # This means all the article's of user should be deleted on destroy actions 
+  has_many :articles, dependent: :destroy 
   # Before save
   before_save { self.email = email.downcase }
   # Validations

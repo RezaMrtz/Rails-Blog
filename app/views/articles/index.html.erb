@@ -1,17 +1,15 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 <h1 class="title is-2 text-has-centered">Articles</h1>
+
+<%= will_paginate @collection, renderer: BulmaPagination::Rails %>
+
 <% @articles.each do |article| %>
   <%#--Articles Title--%>
-  <article class="message is-medium">
+  <article class="message">
     <div class="message-header">  
       <p><%= article.title %></p> 
-    </div>
-    
-      <div class="centered">
-        <%= will_paginate @articles%>
-      </div>
-      <%= will_paginate @collection, renderer: BulmaPagination::Rails %>
+    </div>      
       <%#--Articles Body--%>
       <div class="message-body">
         <%= truncate(article.body, length:100) %>
@@ -20,6 +18,7 @@
           <small>
             By: <%= article.user.username%> 
           </small>
+          <hr>
           <small class="is-size-7">
           /  Created: <%= time_ago_in_words(article.created_at)%> 
           </small>
@@ -28,9 +27,7 @@
           </small>
         </div>
     </div>
-    
     <%# Available if authenticated %>
-    <%# FIXME: Buttons not working correctly%> 
     <% if logged_in? && current_user == article.user %>
       <div class="buttons are-small">      
         <%# Edit Button%>
@@ -46,6 +43,7 @@
     <% end %>
   </article>  
 <% end %>
+
 <%# New Article Button %>
 <% if logged_in? %>
 <div class="button is-primary" id="btn">

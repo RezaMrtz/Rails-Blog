@@ -21,7 +21,7 @@
             <%# More options available if authenticated %>
             <% if logged_in? %>
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link"> Your Profile </a>
+                <a class="navbar-link"> Your Profile <%= "Admin" if current_user.admin? %> </a>
                 <div class="navbar-dropdown has-background-dark">
                         <%= link_to "New Article", new_article_path, class:"navbar-item has-text-white" %>
                         <%= link_to "Edit Profile", edit_user_path(current_user), class:"navbar-item has-text-white" %>

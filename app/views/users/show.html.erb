@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container" id='user-show' >  
+<div class="container" id='user-show' >
+
 <div>
   <!-- Imge -->
   <article class="media">
@@ -25,41 +26,40 @@
     </div>
   </article>
 </div>
-<hr> <%# Pagination %>
-  <%= will_paginate @user_article, renderer: BulmaPagination::Rails %>                
-    <%# End %>
-<div class="box">
+
+<hr>
+
+<%# Pagination %>
+<%= will_paginate @user_article, renderer: BulmaPagination::Rails %>                
+<%# End %>
+
 <% @user.articles.each do |article| %>        
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong> <%= article.title%></strong> <small>@johnsmith</small> <small>31m</small>
-          <br>  
-          <%= article.body %>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-          <%= article.created_at %>
-        </p>
-      </div>
+<div class="message">
+    <div class="message-header">
+    <p>
+      <strong> <%= article.title%></strong> <small>@johnsmith</small> <small>31m</small>  
     </div>
-    <% end %>
-  </article>
-</div>
+    <div class="message-body">
+      <%= article.body %>      
+      <br>
+      <br>
+      <%= article.created_at %>
+    </p>
+    </div> 
 <!-- Buttons-->
-<div class="field is-grouped">
-  <!--Edid-->  
-  <p class="control">
-    <button class="button is-warning">
+<div class="buttons are-small">
+  <!--Edit-->  
+    <button class="button is-warning" style="margin-left:25px; margin-bottom: 15px;">
       <%= link_to 'Edit', edit_user_path(@user) %> 
-    </button>
-  </p>
+    </button>  
   <!--Back-->
-  <p class="control">
-    <button class="button is-light">
-      <%= link_to 'Back', users_path %>
+    <button class="button is-dark" style="margin-bottom: 15px;">
+      <%= link_to 'Back', users_path, class:"has-text-white" %>
     </button>
-  </p>
 </div>
+
+</div>
+<% end %>
 </div>
 
 

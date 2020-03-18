@@ -42,6 +42,8 @@ gem 'bcrypt', '~> 3.1.13'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Faker
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 # Bulma CSS framework
 gem 'bulma-rails', '~> 0.8.0'
 # Ruby on rails wrapper for Bulma framework extensions
