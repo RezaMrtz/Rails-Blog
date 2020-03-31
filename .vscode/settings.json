@@ -4,7 +4,8 @@
         "Foodcritic",
         "Rubo",
         "datetime",
-        "downcase"
+        "downcase",
+        "signup"
     ],
     "ruby.format": "rubocop"
 }

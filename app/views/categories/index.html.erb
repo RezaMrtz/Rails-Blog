@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+    <p class="title is-2">Categories</p>
+
+    <%= will_paginate @categories, renderer: BulmaPagination::Rails %>
+
+    <% @categories.each do |category|%>
+    <div class="box" id="index-box">
+
+        <div class="content">
+            <p class="title is-4">
+                <%= link_to "#{category.name}", category_path(category) %>
+            </p>
+        </div>
+
+    </div>
+    <% end %>
+
+<div class="field">
+    <%= link_to 'New Category', new_category_path, class:"button is-primary" %>
+</div>
+
+
+</div>

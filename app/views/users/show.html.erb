@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-
 <div class="container" id='user-show' >
-
 <div>
   <!-- Imge -->
   <article class="media">
@@ -14,26 +12,19 @@
     <div class="media-right">
       <div class="content">
         <div>   
-          <p class="title is-2">
-            <%= @user.username %>
-          </p>
+          <p class="title is-2"><%= @user.username %></p>
           <p><%= @user.email %></p>
           <p><%= time_ago_in_words(@user.created_at)%> ago </p>     
-          <p>
-          </p>
         </div>
       </div>
     </div>
   </article>
 </div>
-
 <hr>
-
 <%# Pagination %>
 <%= will_paginate @user_article, renderer: BulmaPagination::Rails %>                
 <%# End %>
-
-<% @user.articles.each do |article| %>        
+<% @user.articles.each do |article| %>
 <div class="message">
     <div class="message-header">
     <p>
@@ -49,15 +40,14 @@
 <!-- Buttons-->
 <div class="buttons are-small">
   <!--Edit-->  
-    <button class="button is-warning" style="margin-left:25px; margin-bottom: 15px;">
-      <%= link_to 'Edit', edit_user_path(@user) %> 
-    </button>  
+  <button class="button is-warning" style="margin-left:25px; margin-bottom: 15px;">
+    <%= link_to 'Edit', edit_article_path %> 
+  </button>  
   <!--Back-->
-    <button class="button is-dark" style="margin-bottom: 15px;">
-      <%= link_to 'Back', users_path, class:"has-text-white" %>
-    </button>
+  <button class="button is-dark" style="margin-bottom: 15px;">
+    <%= link_to 'Back', article_path, class:"has-text-white" %>
+  </button>
 </div>
-
 </div>
 <% end %>
 </div>

@@ -42,6 +42,8 @@ gem 'bcrypt', '~> 3.1.13'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# rubyzip is a ruby module for reading and writing zip files
+gem 'rubyzip', '~> 2.3'
 # Faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 # Bulma CSS framework
@@ -52,6 +54,9 @@ gem 'bulma-extensions-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 # Colorize printed text on ANSI terminals
 gem 'rainbow', '~> 2.1'
+# Extracting `assigns` and `assert_template` from ActionDispatch.
+gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -72,8 +77,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 4.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :categories
   # Resources
   root to: 'home#home'
-  resources :comments
   resources :users
+  resources :comments
   resources :articles
+  resources :categories
   # Navigation
   get '/about', to: 'home#about'
   get '/contact', to: 'home#contact'
