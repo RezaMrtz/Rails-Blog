@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
-
+  before_action :require_admin, except: %i[index show]
   # GET /categories
   # GET /categories.json
   def index
@@ -68,5 +68,13 @@ class CategoriesController < ApplicationController
   def category_params
     # FIXME: param is missing or the value is empty: category
     params.require(:category).permit(:name)
+  end
+
+  # Require Admin
+  def require_admin
+    if !logged_in? || (logged_in? && !current_user.admin?)
+      flash[:danger] = 'Only admins can perform that action'
+      redirect_to categories_path
+    end
   end
 end
