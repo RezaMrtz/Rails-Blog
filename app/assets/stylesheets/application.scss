@@ -18,6 +18,7 @@
 .container {
     margin-top: 80px;
 }
+
 footer {
     background-color: #363636 !important;
     position: fixed;
@@ -28,7 +29,7 @@ footer {
     overflow: hidden;
 }
 
-#list{
+#list {
     float: left;
     list-style: none;
 }
@@ -46,14 +47,14 @@ a:visited {
 }
 
 .article-meta-detail {
-    border:1px solid #eaeaea;
+    border: 1px solid #eaeaea;
     margin-top: 15px;
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-.media-content{
+.media-content {
     padding-left: 20px;
 }
 
@@ -70,3 +71,5 @@ a:visited {
 #user-show {
     margin-top: 3%;
 }
+
+.logout {}

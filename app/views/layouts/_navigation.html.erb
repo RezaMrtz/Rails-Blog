@@ -1,12 +1,11 @@
 <nav class="navbar is-dark is-spaced" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="#">
-            <%= link_to root_path do %> 
-                <%= image_tag  "https://img.icons8.com/color/48/000000/ruby-gem.png" %>
+            <%= link_to root_path do %>
+            <%= image_tag  "https://img.icons8.com/color/48/000000/ruby-gem.png" %>
             <% end %>
         </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-            data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -14,36 +13,44 @@
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <%= link_to "Home",root_path, class:"navbar-item" %>    
+            <%= link_to "Home",root_path, class:"navbar-item" %>
             <%= link_to "Articles",articles_path, class:"navbar-item" %>
             <%= link_to "About", about_path, class:"navbar-item" %>
             <%= link_to "Contact", contact_path, class:"navbar-item" %>
+            <%# Categories drop down menu goes here%>
+            <%= link_to 'All Categories', categories_path, class:"navbar-item" %>
             <%# More options available if authenticated %>
             <% if logged_in? %>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link"> Your Profile <%= "Admin" if current_user.admin? %> </a>
                 <div class="navbar-dropdown has-background-dark">
-                        <%= link_to "New Article", new_article_path, class:"navbar-item has-text-white" %>
-                        <%= link_to "Edit Profile", edit_user_path(current_user), class:"navbar-item has-text-white" %>
-                        <%= link_to "View Profile", user_path(current_user), class:"navbar-item has-text-white" %>
+                    <%= link_to "New Article", new_article_path, class:"navbar-item has-text-white" %>
+                    <%= link_to "Edit Profile", edit_user_path(current_user), class:"navbar-item has-text-white" %>
+                    <%= link_to "View Profile", user_path(current_user), class:"navbar-item has-text-white" %>
                     <hr class="navbar-divider">
                     <a class="navbar-item has-text-white"> Report an issue </a>
                 </div>
-            <% end %>    
+                <% end %>
             </div>
-        </div>
-        <%# Session Buttons %>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                  <% if logged_in? %>
-                    <%= link_to 'Log out', logout_path, method: :delete, class:"button is-light"%>
-                  <% else %>
-                    <%= link_to 'Sign up', signup_path, class:"button is-primary"%>
-                    <%= link_to 'Log in',  login_path, class:"button is-info"%>
-                  <% end %>
+            <%# Session Buttons %>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+
+                        <% if logged_in? %>
+
+                        <%= link_to 'Log out', logout_path, method: :delete, class:"button is-light"%>
+
+                        <% else %>
+
+                        <%= link_to 'Sign up', signup_path, class:"button is-primary"%>
+
+                        <%= link_to 'Log in',  login_path, class:"button is-info"%>
+
+                        <% end %>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </nav>
