@@ -1,53 +1,58 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h1 class="title is-2 text-has-centered">Articles</h1>
+    <h1 class="title is-2 text-has-centered">Articles</h1>
 
-<%= will_paginate @collection, renderer: BulmaPagination::Rails %>
+    <%= will_paginate @collection, renderer: BulmaPagination::Rails %>
 
-<% @articles.each do |article| %>
-  <%#--Articles Title--%>
-  <article class="message">
-    <div class="message-header">  
-      <p><%= article.title %></p> 
-    </div>      
-      <%#--Articles Body--%>
-      <div class="message-body">
-        <%= truncate(article.body, length:100) %>
-        <br>
-        <div class="article-meta-detail is-size-7">
-          <small>
-            By: <%= article.user.username%> 
-          </small>
-          <hr>
-          <small class="is-size-7">
-          /  Created: <%= time_ago_in_words(article.created_at)%> 
-          </small>
-          <small class="is-size-7">
-          / Last Update: <%= time_ago_in_words(article.updated_at)%>
-          </small>
+    <% @articles.each do |article| %>
+    <%#--Articles Title--%>
+    <article class="message">
+        <div class="message-header">
+            <p><%= article.title %></p>
         </div>
-    </div>
-    <%# Available if authenticated %>
-    <% if logged_in? && current_user == article.user %>
-      <div class="buttons are-small">      
-        <%# Edit Button%>
-        <div class="button is-warning" id="btn" style="margin-left:25px;">
-          <%= link_to 'Edit', edit_article_path(article)%>
+        <%#--Articles Body--%>
+        <div class="message-body">
+            <%= truncate(article.body, length:100) %>
+            <br>
+            <div class="article-meta-detail is-size-7">
+                <small>
+                    By: <%= article.user.username%>
+                </small>
+                <hr>
+                <small class="is-size-7">
+                    / Created: <%= time_ago_in_words(article.created_at)%>
+                </small>
+                <small class="is-size-7">
+                    / Last Update: <%= time_ago_in_words(article.updated_at)%>
+                </small>
+            </div>
         </div>
-        <%# Delete Button%>
-        <div class="button is-danger" id="btn">
-          <%= link_to 'Delete',article_path(article) ,method: :delete, 
+        <%# Association %>
+        <% if article.categories.any? %>
+          <p>Categories: <%= render @article.categories %></p>
+        <% end %>
+        
+        <%# Available if authenticated %>
+        <% if logged_in? && current_user == article.user %>
+        <div class="buttons are-small">
+            <%# Edit Button%>
+            <div class="button is-warning" id="btn" style="margin-left:25px;">
+                <%= link_to 'Edit', edit_article_path(article)%>
+            </div>
+            <%# Delete Button%>
+            <div class="button is-danger" id="btn">
+                <%= link_to 'Delete',article_path(article) ,method: :delete, 
           data: { confirm: 'Are you sure?' } %>
+            </div>
         </div>
-      </div>
+        <% end %>
+    </article>
     <% end %>
-  </article>  
-<% end %>
 
-<%# New Article Button %>
-<% if logged_in? %>
-<div class="button is-primary" id="btn">
-  <%= link_to 'New Article', new_article_path, class:"has-text-white" %>
-</div>
-<% end %>
+    <%# New Article Button %>
+    <% if logged_in? %>
+    <div class="button is-primary" id="btn">
+        <%= link_to 'New Article', new_article_path, class:"has-text-white" %>
+    </div>
+    <% end %>
 </div>

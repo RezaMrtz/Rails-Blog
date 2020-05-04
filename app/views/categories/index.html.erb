@@ -15,10 +15,11 @@
 
     </div>
     <% end %>
-<% if logged_in? and current_user.admin? %>
-<div class="field">
-    <%= link_to 'New Category', new_category_path, class:"button is-primary" %>
-</div>
-<% end %>
+    <%# Can create a new category if logged in %>
+    <% if logged_in? and current_user.admin? %>
+    <div class="field">
+        <%= link_to 'New Category', new_category_path, class:"button is-primary" %>
+    </div>
+    <% end %>
 
 </div>
